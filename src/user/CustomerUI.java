@@ -48,6 +48,7 @@ public class CustomerUI extends JFrame {
 	 * Create the frame.
 	 */
 	public CustomerUI() {
+		setResizable(false);
 		setTitle("Customer Registration");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 647, 551);
