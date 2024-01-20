@@ -52,16 +52,18 @@ public class CustomerUI extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 647, 551);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.ORANGE);
+		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		setLocationRelativeTo(this);
+		
 		custDB=new CustomerDB();
 		
 		JLabel lblFirstName = new JLabel("First Name");
-		lblFirstName.setForeground(Color.DARK_GRAY);
-		lblFirstName.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblFirstName.setForeground(Color.BLACK);
+		lblFirstName.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblFirstName.setBounds(216, 123, 107, 19);
 		contentPane.add(lblFirstName);
 		
@@ -71,9 +73,9 @@ public class CustomerUI extends JFrame {
 		txtFirstName.setColumns(10);
 		
 		JLabel lblLastName = new JLabel("Last Name");
-		lblLastName.setForeground(Color.DARK_GRAY);
-		lblLastName.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblLastName.setBounds(216, 184, 66, 13);
+		lblLastName.setForeground(Color.BLACK);
+		lblLastName.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblLastName.setBounds(216, 184, 91, 13);
 		contentPane.add(lblLastName);
 		
 		txtLastName = new JTextField();
@@ -82,9 +84,9 @@ public class CustomerUI extends JFrame {
 		txtLastName.setColumns(10);
 		
 		JLabel lblAccountNumber = new JLabel("AccountNumber");
-		lblAccountNumber.setForeground(Color.DARK_GRAY);
-		lblAccountNumber.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		lblAccountNumber.setBounds(216, 241, 107, 27);
+		lblAccountNumber.setForeground(Color.BLACK);
+		lblAccountNumber.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblAccountNumber.setBounds(216, 241, 124, 27);
 		contentPane.add(lblAccountNumber);
 		
 		txtAccountNumber = new JTextField();
@@ -93,8 +95,8 @@ public class CustomerUI extends JFrame {
 		contentPane.add(txtAccountNumber);
 		
 		JLabel lblUserName = new JLabel("UserName");
-		lblUserName.setForeground(Color.DARK_GRAY);
-		lblUserName.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblUserName.setForeground(Color.BLACK);
+		lblUserName.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblUserName.setBounds(216, 308, 91, 13);
 		contentPane.add(lblUserName);
 		
@@ -104,8 +106,8 @@ public class CustomerUI extends JFrame {
 		txtUserName.setColumns(10);
 		
 		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setForeground(Color.DARK_GRAY);
-		lblPassword.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblPassword.setForeground(Color.BLACK);
+		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblPassword.setBounds(216, 367, 91, 13);
 		contentPane.add(lblPassword);
 		
@@ -127,6 +129,7 @@ public class CustomerUI extends JFrame {
 				int result=custDB.add(cust);
 				if(result>0) {
 					JOptionPane.showMessageDialog(null,"Customer Registration is successfully confirmed");
+					
 				}else {
 					JOptionPane.showMessageDialog(null, "Customer Registration is not successfully confirmed");
 				}
@@ -152,8 +155,9 @@ public class CustomerUI extends JFrame {
 		contentPane.add(btnCancel);
 		
 		JLabel lblHeading = new JLabel("Customer Registration");
-		lblHeading.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblHeading.setBounds(243, 23, 291, 36);
+		lblHeading.setForeground(Color.BLACK);
+		lblHeading.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblHeading.setBounds(227, 57, 291, 36);
 		contentPane.add(lblHeading);
 	}
 }
