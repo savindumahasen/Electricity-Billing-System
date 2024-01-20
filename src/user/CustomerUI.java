@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.JPasswordField;
@@ -14,6 +15,8 @@ import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import  buisness.Customer;
+import data.CustomerDB;
 
 public class CustomerUI extends JFrame {
 
@@ -23,6 +26,7 @@ public class CustomerUI extends JFrame {
 	private JTextField txtAccountNumber;
 	private JTextField txtUserName;
 	private JPasswordField txtPassword;
+	private CustomerDB custDB;
 
 	/**
 	 * Launch the application.
@@ -52,6 +56,8 @@ public class CustomerUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		custDB=new CustomerDB();
 		
 		JLabel lblFirstName = new JLabel("First Name");
 		lblFirstName.setForeground(Color.DARK_GRAY);
@@ -112,6 +118,23 @@ public class CustomerUI extends JFrame {
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String firstName=txtFirstName.getText();
+				String lastName=txtLastName.getText();
+				String accountNumber=txtAccountNumber.getText();
+				String userName=txtUserName.getText();
+				String password=txtPassword.getText();
+				
+				Customer cust=new Customer( firstName, lastName, accountNumber, userName,password);
+				int result=custDB.add(cust);
+				if(result>0) {
+					JOptionPane.showMessageDialog(null,"Customer Registration is successfully confirmed");
+				}else {
+					JOptionPane.showMessageDialog(null, "Customer Registration is not successfully confirmed");
+				}
+				
+				
+				
+				
+				
 			}
 		});
 		btnAdd.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -119,6 +142,11 @@ public class CustomerUI extends JFrame {
 		contentPane.add(btnAdd);
 		
 		JButton btnCancel = new JButton("Cancel");
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
 		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnCancel.setBounds(405, 454, 85, 21);
 		contentPane.add(btnCancel);
