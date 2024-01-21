@@ -1,6 +1,7 @@
 package data;
 
 import buisness.Customer;
+
 import java.util.ArrayList;
 
 public class CustomerDB implements ICustomer {
@@ -17,6 +18,19 @@ public class CustomerDB implements ICustomer {
 		// TODO Auto-generated method stub
 		cust.add(obj);
 		return 1;
+	}
+
+	@Override
+	public Customer get(String userName) {
+		// TODO Auto-generated method stub
+		for (Customer c : cust) {
+			if(c.getUserName()==userName) {
+				return c;
+			}
+			
+			
+		}
+		return null;
 	}
 
 }

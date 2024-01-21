@@ -12,13 +12,18 @@ import javax.swing.JTextField;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.Color;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import buisness.Customer;
+import data.CustomerDB;
 
-public class LoginUI extends JFrame {
+public class CustomerLoginUI extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtUserName;
 	private JPasswordField txtPassword;
-	private JPasswordField passwordField;
+	private JPasswordField txtConfirmPassword;
+	private CustomerDB custDB;
 
 	/**
 	 * Launch the application.
@@ -27,7 +32,7 @@ public class LoginUI extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LoginUI frame = new LoginUI();
+					CustomerLoginUI frame = new CustomerLoginUI();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,7 +44,7 @@ public class LoginUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public LoginUI() {
+	public CustomerLoginUI() {
 		setTitle("CustomerLogin");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 538, 435);
@@ -74,11 +79,22 @@ public class LoginUI extends JFrame {
 		lblConfirmPassword.setBounds(101, 234, 114, 13);
 		contentPane.add(lblConfirmPassword);
 		
-		passwordField = new JPasswordField();
-		passwordField.setBounds(236, 234, 134, 19);
-		contentPane.add(passwordField);
+		txtConfirmPassword = new JPasswordField();
+		txtConfirmPassword.setBounds(236, 234, 134, 19);
+		contentPane.add(txtConfirmPassword);
 		
 		JButton btnLogin = new JButton("Login");
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String userName=txtUserName.getText();
+				String password=txtPassword.getText();
+				String confirmPassword=txtConfirmPassword.getText();
+				
+				
+				
+				
+			}
+		});
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnLogin.setBounds(64, 315, 85, 21);
 		contentPane.add(btnLogin);

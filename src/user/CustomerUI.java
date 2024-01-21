@@ -130,7 +130,7 @@ public class CustomerUI extends JFrame {
 				int result=custDB.add(cust);
 				if(result>0) {
 					JOptionPane.showMessageDialog(null,"Customer Registration is successfully confirmed");
-					LoginUI log=new LoginUI();
+					CustomerLoginUI log=new CustomerLoginUI();
 					log.setVisible(true);
 					setVisible(false);
 					
