@@ -40,6 +40,7 @@ public class MainUI extends JFrame {
 		setTitle("Electricity Billing Dashboard");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 866, 604);
+	
 		
 		setLocationRelativeTo(this);
 		
@@ -52,6 +53,7 @@ public class MainUI extends JFrame {
 		JMenuItem mntmHome = new JMenuItem("Home");
 		mntmHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				setVisible(true);
 			}
 		});
 		mntmHome.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H, InputEvent.CTRL_DOWN_MASK));
@@ -75,6 +77,13 @@ public class MainUI extends JFrame {
 		menuBar.add(mnProfile);
 		
 		JMenuItem mntmMyProfile = new JMenuItem("My Profile");
+		mntmMyProfile.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MyProfile myProfile=new MyProfile();
+				myProfile.setVisible(true);
+				setVisible(false);
+			}
+		});
 		mntmMyProfile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, InputEvent.CTRL_DOWN_MASK | InputEvent.ALT_DOWN_MASK));
 		mnProfile.add(mntmMyProfile);
 	}
