@@ -12,6 +12,8 @@ import javax.swing.JMenuItem;
 import javax.swing.KeyStroke;
 import java.awt.event.KeyEvent;
 import java.awt.event.InputEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MainUI extends JFrame {
 
@@ -39,6 +41,8 @@ public class MainUI extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 866, 604);
 		
+		setLocationRelativeTo(this);
+		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
@@ -46,6 +50,10 @@ public class MainUI extends JFrame {
 		menuBar.add(mnHome);
 		
 		JMenuItem mntmHome = new JMenuItem("Home");
+		mntmHome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		mntmHome.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H, InputEvent.CTRL_DOWN_MASK));
 		mnHome.add(mntmHome);
 		
