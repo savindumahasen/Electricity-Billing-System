@@ -21,16 +21,16 @@ public class CustomerDB implements ICustomer {
 	}
 
 	@Override
-	public Customer get(String userName) {
+	public Customer get(int ID) {
 		// TODO Auto-generated method stub
-		for (Customer c : cust) {
-			if(c.getUserName()==userName) {
+		for(Customer c:cust) {
+			if(c.getID()==ID) {
 				return c;
 			}
-			
-			
 		}
 		return null;
 	}
+
+   
 
 }

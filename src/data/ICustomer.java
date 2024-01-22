@@ -5,7 +5,6 @@ import buisness.Customer;
 public interface ICustomer {
 	
 	public int add(Customer obj);
-	
-	Customer get(String  userName);
+	public Customer get(int ID);
 
 }
