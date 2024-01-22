@@ -27,6 +27,7 @@ public class CustomerUI extends JFrame {
 	private JTextField txtUserName;
 	private JPasswordField txtPassword;
 	private CustomerDB custDB;
+	private JTextField txtID;
 
 	/**
 	 * Launch the application.
@@ -61,6 +62,16 @@ public class CustomerUI extends JFrame {
 		setLocationRelativeTo(this);
 		
 		custDB=new CustomerDB();
+		
+		JLabel lblID = new JLabel("ID");
+		lblID.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblID.setBounds(216, 86, 45, 13);
+		contentPane.add(lblID);
+		
+		txtID = new JTextField();
+		txtID.setBounds(405, 85, 153, 19);
+		contentPane.add(txtID);
+		txtID.setColumns(10);
 		
 		JLabel lblFirstName = new JLabel("First Name");
 		lblFirstName.setForeground(Color.BLACK);
@@ -120,13 +131,19 @@ public class CustomerUI extends JFrame {
 		JButton btnAdd = new JButton("Add");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int ID=Integer.valueOf(txtID.getText());
 				String firstName=txtFirstName.getText();
 				String lastName=txtLastName.getText();
 				String accountNumber=txtAccountNumber.getText();
 				String userName=txtUserName.getText();
 				String password=txtPassword.getText();
+				System.out.println(firstName);
+				System.out.println(lastName);
+				System.out.println(accountNumber);
+				System.out.println(userName);
+				System.out.println(password);
 				
-				Customer cust=new Customer( firstName, lastName, accountNumber, userName,password);
+				Customer cust=new Customer( ID,firstName, lastName, accountNumber, userName,password);
 				int result=custDB.add(cust);
 				if(result>0) {
 					JOptionPane.showMessageDialog(null,"Customer Registration is successfully confirmed");
@@ -161,7 +178,10 @@ public class CustomerUI extends JFrame {
 		JLabel lblHeading = new JLabel("Customer Registration");
 		lblHeading.setForeground(Color.BLACK);
 		lblHeading.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblHeading.setBounds(227, 57, 291, 36);
+		lblHeading.setBounds(226, 24, 291, 36);
 		contentPane.add(lblHeading);
+		
+	
 	}
+	
 }
