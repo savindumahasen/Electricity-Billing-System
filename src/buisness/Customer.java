@@ -2,6 +2,7 @@ package buisness;
 
 public class Customer {
 	
+	private int ID;
 	private String firstName;
 	private String lastName;
 	private String accountNumber;
@@ -11,14 +12,20 @@ public class Customer {
 	public Customer() {
 		// TODO Auto-generated constructor stub
 	}
-	public Customer(String firstName,String lastName,String accountNumber,String userName,String password) {
+	public Customer(int ID,String firstName,String lastName,String accountNumber,String userName,String password) {
+		this.ID=ID;
 		this.firstName=firstName;
 		this.lastName=lastName;
 		this.accountNumber=accountNumber;
 		this.userName=userName;
 		this.password=password;
 	}
-	
+	public void setID(int iD) {
+		ID = iD;
+	}
+	public int getID() {
+		return ID;
+	}
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
