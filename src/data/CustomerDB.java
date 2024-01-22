@@ -2,6 +2,7 @@ package data;
 
 import buisness.Customer;
 
+
 import java.util.ArrayList;
 
 public class CustomerDB implements ICustomer {
@@ -30,6 +31,15 @@ public class CustomerDB implements ICustomer {
 		}
 		return null;
 	}
+	
+
+	@Override
+	public ArrayList<Customer> getAll() { // retrieve the all student details
+		// TODO Auto-generated method stub
+		
+		return cust;
+	}
+
 
    
 
