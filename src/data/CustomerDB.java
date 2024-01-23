@@ -1,7 +1,7 @@
 package data;
 
 import buisness.Customer;
-
+import buisness.Student;
 
 import java.util.ArrayList;
 
@@ -52,15 +52,19 @@ public class CustomerDB implements ICustomer {
 	@Override
 	public Customer get(int ID) {
 		// TODO Auto-generated method stub
-		for(Customer c:cust) {
-			if(c.getID()==ID) {
-				return c;
-			}
-		}
-		return null;
-	}
-	
+		 MongoCollection<Document> collection = db.getCollection("Customer"); // Replace with your collection name
+		    Document document = collection.find(new Document("ID",ID)).first();
+		    Customer customerObject = new Customer(
+		            document.getInteger("ID"),  // Use the correct field name here
+		            document.getString("FirstName"),
+		            document.getString("LastName"),
+		            document.getString("AccountNumber"),
+		            document.getString("UserName"),
+		            document.getString("Password")
+		    );
 
+		    return customerObject;
+	}
 	@Override
 	public ArrayList<Customer> getAll() { // retrieve the all student details
 		// TODO Auto-generated method stub
