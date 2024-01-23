@@ -5,13 +5,18 @@ import buisness.Customer;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
+import com.mongodb.MongoClient;
+
 public class CustomerDB implements ICustomer {
 	
 	ArrayList<Customer> cust;
 
 	public CustomerDB() {
 		// TODO Auto-generated constructor stub
-		cust=new ArrayList<Customer>();
+		MongoClient mongoClient=new MongoClient("localhost",27017);
+        JOptionPane.showMessageDialog(null, "Database is successfully  connected");
 	}
 
 	@Override
