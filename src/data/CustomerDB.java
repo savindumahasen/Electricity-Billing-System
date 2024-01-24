@@ -46,7 +46,11 @@ public class CustomerDB implements ICustomer {
 		// TODO Auto-generated method stub
 		//Inserting sample record by creating collection and document.
 				MongoCollection<Document>  collection= db.getCollection("Customer");
-				 Document doc =new Document("ID",obj.getID()).append("FirstName",obj.getFirstName()).append("LastName",obj.getLastName()).append("AccountNumber",obj.getAccountNumber()).append("UserName",obj.getUserName()).append("Password",obj.getPassword());
+				 Document doc =new Document("ID",obj.getID()).append("FirstName",obj.getFirstName()).
+				 append("LastName",obj.getLastName()).append("AccountNumber",obj.getAccountNumber()).
+				 append("UserName",obj.getUserName()).append("Password",obj.getPassword()).
+				 append("MobileNumber",obj.getMobileNumber()).append("LandNumber",obj.getLastName());
+				 
 				collection.insertOne(doc);
 				JOptionPane.showMessageDialog(null, "Data is added successfully  confirmed");
 				
