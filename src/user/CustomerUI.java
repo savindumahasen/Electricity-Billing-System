@@ -130,6 +130,23 @@ public class CustomerUI extends JFrame {
 		txtPassword.setBounds(405, 366, 153, 19);
 		contentPane.add(txtPassword);
 		
+		
+		txtMobileNumber = new JTextField();
+		txtMobileNumber.setBounds(405, 416, 153, 19);
+		contentPane.add(txtMobileNumber);
+		txtMobileNumber.setColumns(10);
+		
+		JLabel lblLandNumber = new JLabel("Land Number");
+		lblLandNumber.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblLandNumber.setBounds(216, 475, 124, 13);
+		contentPane.add(lblLandNumber);
+		
+		txtLandNumber = new JTextField();
+		txtLandNumber.setColumns(10);
+		txtLandNumber.setBounds(405, 474, 153, 19);
+		contentPane.add(txtLandNumber);
+		
+		
 		JButton btnAdd = new JButton("Add");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -141,7 +158,7 @@ public class CustomerUI extends JFrame {
 				String password=txtPassword.getText();
 				String mobileNumber=txtMobileNumber.getText();
 				String landNumber=txtLandNumber.getText();
-				
+
 				Customer cust=new Customer( ID,firstName, lastName, accountNumber, userName,password,mobileNumber,landNumber);
 				int result=custDB.add(cust);
 				if(result>0) {
@@ -185,22 +202,7 @@ public class CustomerUI extends JFrame {
 		lblMobilNumber.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblMobilNumber.setBounds(216, 419, 124, 13);
 		contentPane.add(lblMobilNumber);
-		
-		txtMobileNumber = new JTextField();
-		txtMobileNumber.setBounds(405, 416, 153, 19);
-		contentPane.add(txtMobileNumber);
-		txtMobileNumber.setColumns(10);
-		
-		JLabel lblLandNumber = new JLabel("Land Number");
-		lblLandNumber.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblLandNumber.setBounds(216, 475, 124, 13);
-		contentPane.add(lblLandNumber);
-		
-		txtLandNumber = new JTextField();
-		txtLandNumber.setColumns(10);
-		txtLandNumber.setBounds(405, 474, 153, 19);
-		contentPane.add(txtLandNumber);
-		
+	
 	
 	}
 }
