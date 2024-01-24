@@ -49,7 +49,7 @@ public class CustomerDB implements ICustomer {
 				 Document doc =new Document("ID",obj.getID()).append("FirstName",obj.getFirstName()).
 				 append("LastName",obj.getLastName()).append("AccountNumber",obj.getAccountNumber()).
 				 append("UserName",obj.getUserName()).append("Password",obj.getPassword()).
-				 append("MobileNumber",obj.getMobileNumber()).append("LandNumber",obj.getLastName());
+				 append("MobileNumber",obj.getMobileNumber()).append("LandNumber",obj.getLandNumber());
 				 
 				collection.insertOne(doc);
 				JOptionPane.showMessageDialog(null, "Data is added successfully  confirmed");
@@ -81,19 +81,19 @@ public class CustomerDB implements ICustomer {
 		// TODO Auto-generated method stub
         MongoCollection<Document>  collection= db.getCollection("Customer");
         Bson filter = Filters.eq("ID", obj.getID());
-	     Document updateDocument = new Document("$set", new Document()
+        Document updateDocument = new Document("$set", new Document()
+                .append("ID", obj.getID())
                 .append("FirstName", obj.getFirstName())
-                .append("LastName",  obj.getLastName())
-                .append("AccountNumber",    obj.getAccountNumber())
-                .append("UserName",       obj.getUserName())
-                .append("Password",     obj.getPassword()))
-	            .append("MobileNumber", obj.getMobileNumber())
-	            .append("LandNumber",obj.getLandNumber());
-	     
-	     collection.updateOne(filter, updateDocument);
-	     System.out.println("#### Update is scuessfully  completed");
-   
-		return 1;
+                .append("LastName", obj.getLastName())
+                .append("AccountNumber", obj.getAccountNumber())
+                .append("UserName", obj.getUserName())
+                .append("Password", obj.getPassword())
+                .append("MobileNumber", obj.getMobileNumber())
+                .append("LandNumber", obj.getLandNumber()));
+        
+           collection.updateOne(filter, updateDocument);
+           System.out.println("#### Update is successfully completed");
+        return 1;
 	}
 	
 	@Override
