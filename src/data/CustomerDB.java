@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import org.bson.Document;
 
 import com.mongodb.MongoClient;
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
@@ -68,11 +69,24 @@ public class CustomerDB implements ICustomer {
 	@Override
 	public ArrayList<Customer> getAll() { // retrieve the all student details
 		// TODO Auto-generated method stub
+		 ArrayList<Customer> custList = new ArrayList<Customer>();
+	     MongoCollection<Document> collection = db.getCollection("Customer");
+	     FindIterable<Document> documents = collection.find();
+         MongoCursor<Document> cursor = documents.iterator();
+         while (cursor.hasNext()) {
+             Document document = cursor.next();
+             Customer customer = new Customer(
+                     document.getInteger("ID"),
+                     document.getString("FirstName"),
+                     document.getString("LastName"),
+                     document.getString("AccountNumber"),
+                     document.getString("UserName"),
+                     document.getString("Password")
+             );
+             custList.add(customer);
 		
-		return cust;
+	
 	}
-
-
-   
-
+     	return custList;
+	}
 }
