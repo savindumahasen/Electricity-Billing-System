@@ -137,11 +137,6 @@ public class CustomerUI extends JFrame {
 				String accountNumber=txtAccountNumber.getText();
 				String userName=txtUserName.getText();
 				String password=txtPassword.getText();
-				System.out.println(firstName);
-				System.out.println(lastName);
-				System.out.println(accountNumber);
-				System.out.println(userName);
-				System.out.println(password);
 				
 				Customer cust=new Customer( ID,firstName, lastName, accountNumber, userName,password);
 				int result=custDB.add(cust);
@@ -154,6 +149,7 @@ public class CustomerUI extends JFrame {
 				}else {
 					JOptionPane.showMessageDialog(null, "Customer Registration is not successfully confirmed");
 				}
+				
 				
 				
 				
