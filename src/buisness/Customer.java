@@ -22,7 +22,9 @@ public class Customer {
 		this.accountNumber=accountNumber;
 		this.userName=userName;
 		this.password=password;
+		this.mobileNumber=mobileNumber;
 		this.landNumber=landNumber;
+		
 	}
 	public void setID(int iD) {
 		ID = iD;
