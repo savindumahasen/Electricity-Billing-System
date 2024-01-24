@@ -97,7 +97,7 @@ public class CustomerLoginUI extends JFrame {
 				System.out.println(password);
 				System.out.println(confirmPassword);
 				Customer customer=custDB.get(ID);
-				if(ID==456 && password.equals("admin")) {
+				if(ID==customer.getID() & password.equals(customer.getPassword())) {
 					JOptionPane.showMessageDialog(null, "Login  is  successfully  confirmed");
 					MainUI mainUI=new MainUI();
 					mainUI.setVisible(true);
