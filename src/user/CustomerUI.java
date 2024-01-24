@@ -28,6 +28,8 @@ public class CustomerUI extends JFrame {
 	private JPasswordField txtPassword;
 	private CustomerDB custDB;
 	private JTextField txtID;
+	private JTextField txtMobileNumber;
+	private JTextField txtLandNumber;
 
 	/**
 	 * Launch the application.
@@ -52,7 +54,7 @@ public class CustomerUI extends JFrame {
 		setResizable(false);
 		setTitle("Customer Registration");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 647, 551);
+		setBounds(100, 100, 647, 656);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -158,7 +160,7 @@ public class CustomerUI extends JFrame {
 			}
 		});
 		btnAdd.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnAdd.setBounds(216, 454, 85, 21);
+		btnAdd.setBounds(222, 565, 85, 21);
 		contentPane.add(btnAdd);
 		
 		JButton btnCancel = new JButton("Cancel");
@@ -168,7 +170,7 @@ public class CustomerUI extends JFrame {
 			}
 		});
 		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnCancel.setBounds(405, 454, 85, 21);
+		btnCancel.setBounds(442, 565, 85, 21);
 		contentPane.add(btnCancel);
 		
 		JLabel lblHeading = new JLabel("Customer Registration");
@@ -177,7 +179,26 @@ public class CustomerUI extends JFrame {
 		lblHeading.setBounds(226, 24, 291, 36);
 		contentPane.add(lblHeading);
 		
+		JLabel lblMobilNumber = new JLabel("Mobile Number");
+		lblMobilNumber.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblMobilNumber.setBounds(216, 419, 124, 13);
+		contentPane.add(lblMobilNumber);
+		
+		txtMobileNumber = new JTextField();
+		txtMobileNumber.setBounds(405, 416, 153, 19);
+		contentPane.add(txtMobileNumber);
+		txtMobileNumber.setColumns(10);
+		
+		JLabel lblLandNumber = new JLabel("Land Number");
+		lblLandNumber.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblLandNumber.setBounds(216, 475, 124, 13);
+		contentPane.add(lblLandNumber);
+		
+		txtLandNumber = new JTextField();
+		txtLandNumber.setColumns(10);
+		txtLandNumber.setBounds(405, 474, 153, 19);
+		contentPane.add(txtLandNumber);
+		
 	
 	}
-	
 }
