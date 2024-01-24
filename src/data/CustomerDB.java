@@ -68,7 +68,9 @@ public class CustomerDB implements ICustomer {
 		            document.getString("LastName"),
 		            document.getString("AccountNumber"),
 		            document.getString("UserName"),
-		            document.getString("Password")
+		            document.getString("Password"),
+		            document.getString("MobileNumber"),
+		            document.getString("LandNumber")
 		    );
 
 		    return customerObject;
