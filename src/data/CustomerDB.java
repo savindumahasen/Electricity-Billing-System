@@ -7,12 +7,16 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import org.bson.Document;
+import org.bson.conversions.Bson;
 
 import com.mongodb.MongoClient;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
+import com.mongodb.client.result.UpdateResult;
 
 public class CustomerDB implements ICustomer {
 	private MongoDatabase db;
@@ -65,6 +69,25 @@ public class CustomerDB implements ICustomer {
 
 		    return customerObject;
 	}
+
+	@Override
+	public int update(Customer obj) {
+		// TODO Auto-generated method stub
+        MongoCollection<Document>  collection= db.getCollection("Customer");
+        Bson filter = Filters.eq("ID", obj.getID());
+	     Document updateDocument = new Document("$set", new Document()
+                .append("FirstName", obj.getFirstName())
+                .append("LastName",  obj.getLastName())
+                .append("AccountNumber",    obj.getAccountNumber())
+                .append("UserName",       obj.getUserName())
+                .append("Password",     obj.getPassword()));
+	     
+	     collection.updateOne(filter, updateDocument);
+	     System.out.println("#### Update is scuessfully  completed");
+   
+		return 1;
+	}
+	
 	@Override
 	public ArrayList<Customer> getAll() { // retrieve the all student details
 		// TODO Auto-generated method stub
@@ -88,4 +111,5 @@ public class CustomerDB implements ICustomer {
 	}
      	return custList;
 	}
+
 }
