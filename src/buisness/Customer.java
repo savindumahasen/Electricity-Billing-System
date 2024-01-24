@@ -8,17 +8,21 @@ public class Customer {
 	private String accountNumber;
 	private String userName;
 	private String password;
+	private String mobileNumber;
+	private String landNumber;
 
 	public Customer() {
 		// TODO Auto-generated constructor stub
 	}
-	public Customer(int ID,String firstName,String lastName,String accountNumber,String userName,String password) {
+	public Customer(int ID,String firstName,String lastName,String accountNumber,String userName,String password,
+			String mobileNumber,String landNumber) {
 		this.ID=ID;
 		this.firstName=firstName;
 		this.lastName=lastName;
 		this.accountNumber=accountNumber;
 		this.userName=userName;
 		this.password=password;
+		this.landNumber=landNumber;
 	}
 	public void setID(int iD) {
 		ID = iD;
@@ -55,6 +59,18 @@ public class Customer {
 	}
 	public String getPassword() {
 		return password;
+	}
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
+	}
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
+	public void setLandNumber(String landNumber) {
+		this.landNumber = landNumber;
+	}
+	public String getLandNumber() {
+		return landNumber;
 	}
 
 }
