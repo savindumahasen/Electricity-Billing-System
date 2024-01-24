@@ -86,7 +86,9 @@ public class CustomerDB implements ICustomer {
                 .append("LastName",  obj.getLastName())
                 .append("AccountNumber",    obj.getAccountNumber())
                 .append("UserName",       obj.getUserName())
-                .append("Password",     obj.getPassword()));
+                .append("Password",     obj.getPassword()))
+	            .append("MobileNumber", obj.getMobileNumber())
+	            .append("LandNumber",obj.getLandNumber());
 	     
 	     collection.updateOne(filter, updateDocument);
 	     System.out.println("#### Update is scuessfully  completed");
