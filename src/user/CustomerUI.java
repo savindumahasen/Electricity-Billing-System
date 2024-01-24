@@ -139,8 +139,10 @@ public class CustomerUI extends JFrame {
 				String accountNumber=txtAccountNumber.getText();
 				String userName=txtUserName.getText();
 				String password=txtPassword.getText();
+				String mobileNumber=txtMobileNumber.getText();
+				String landNumber=txtLandNumber.getText();
 				
-				Customer cust=new Customer( ID,firstName, lastName, accountNumber, userName,password);
+				Customer cust=new Customer( ID,firstName, lastName, accountNumber, userName,password,mobileNumber,landNumber);
 				int result=custDB.add(cust);
 				if(result>0) {
 					JOptionPane.showMessageDialog(null,"Customer Registration is successfully confirmed");
