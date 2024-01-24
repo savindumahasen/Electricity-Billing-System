@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import buisness.Customer;
 import data.CustomerDB;
@@ -80,9 +81,28 @@ public class MyProfile extends JFrame {
 		btnUpdate.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int ID=0;
+				String accountNumber="";
+				String userName="";
+				String password="";
+				
 				String firstName=txtFirstName.getText();
 				String lastName=txtLastName.getText();
-			
+				ArrayList<Customer> custList2=custDB.getAll();
+				for(Customer custList4:custList2) {
+					ID=custList4.getID();
+				    accountNumber=custList4.getAccountNumber();
+				    userName=custList4.getUserName();
+				    password=custList4.getPassword();
+				    
+				}
+				Customer customer=new Customer(ID,firstName,lastName,accountNumber,userName,password);
+				int result=custDB.update(customer);
+				if(result>0) {
+					JOptionPane.showMessageDialog(null, "Customer data updated is successfully  confirmed");
+				}else {
+					JOptionPane.showMessageDialog(null, "Customer data updated is not successfully  confirmed");
+				}
 			}
 		});
 		btnUpdate.setBounds(76, 279, 510, 21);
