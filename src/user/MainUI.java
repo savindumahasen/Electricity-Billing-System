@@ -63,6 +63,14 @@ public class MainUI extends JFrame {
 		menuBar.add(mnPayment);
 		
 		JMenuItem mntmBillPayment = new JMenuItem("Bill Payment");
+		mntmBillPayment.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				BillPaymentUI payment=new BillPaymentUI();
+				payment.setVisible(true);
+				setVisible(false);
+				
+			}
+		});
 		mntmBillPayment.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, InputEvent.CTRL_DOWN_MASK));
 		mnPayment.add(mntmBillPayment);
 		
