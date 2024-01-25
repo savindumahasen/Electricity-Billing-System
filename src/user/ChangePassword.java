@@ -56,6 +56,7 @@ public class ChangePassword extends JFrame {
 	 * Create the frame.
 	 */
 	public ChangePassword() {
+		setTitle("Change Password");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 666, 572);
 		contentPane = new JPanel();
@@ -72,7 +73,7 @@ public class ChangePassword extends JFrame {
 		
 		txtFirstName = new JTextField();
 		txtFirstName.setColumns(10);
-		txtFirstName.setBounds(454, 109, 168, 19);
+		txtFirstName.setBounds(454, 123, 168, 19);
 		contentPane.add(txtFirstName);
 		txtFirstName.setVisible(false);
 
@@ -80,7 +81,7 @@ public class ChangePassword extends JFrame {
 		
 		txtLastName = new JTextField();
 		txtLastName.setColumns(10);
-		txtLastName.setBounds(454, 170, 168, 19);
+		txtLastName.setBounds(454, 182, 168, 19);
 		contentPane.add(txtLastName);
 		txtLastName.setVisible(false);
 		
@@ -107,20 +108,20 @@ public class ChangePassword extends JFrame {
 		txtLandNumber.setVisible(false);
 		
 		txtCurrentPassword = new JTextField();
-		txtCurrentPassword.setBounds(222, 182, 184, 19);
+		txtCurrentPassword.setBounds(233, 182, 141, 19);
 		contentPane.add(txtCurrentPassword);
 		txtCurrentPassword.setColumns(10);
 		
 		txtNewPassword = new JTextField();
 		txtNewPassword.setColumns(10);
-		txtNewPassword.setBounds(222, 269, 184, 19);
+		txtNewPassword.setBounds(233, 269, 173, 19);
 		contentPane.add(txtNewPassword);
 		txtPassword.setVisible(false);
 
 		
 		txtConfirmNewPassword = new JTextField();
 		txtConfirmNewPassword.setColumns(10);
-		txtConfirmNewPassword.setBounds(222, 343, 213, 19);
+		txtConfirmNewPassword.setBounds(233, 343, 173, 19);
 		contentPane.add(txtConfirmNewPassword);
 
 		

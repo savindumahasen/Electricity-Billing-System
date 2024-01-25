@@ -29,6 +29,7 @@ public class MyProfile extends JFrame {
     private JButton btnUpdatePassword;
     private JTextField txtMobileNumber;
     private JTextField txtLandNumber;
+    private JTextField txtID;
 	/**
 	 * Launch the application.
 	 */
@@ -53,16 +54,23 @@ public class MyProfile extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 654, 497);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.LIGHT_GRAY);
+		contentPane.setBackground(Color.ORANGE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		custDB=new CustomerDB();
-		
+		txtID = new JTextField();
+		txtID.setColumns(10);
+		txtID.setBounds(181, 45, 280, 28);
+		contentPane.add(txtID);
+		ArrayList<Customer> custList0=custDB.getAll();
+		for(Customer custList1:custList0) {
+			txtID.setText(String.valueOf(custList1.getID()));
+		}
 		
 		txtFirstName = new JTextField();
-		txtFirstName.setBounds(181, 77, 280, 28);
+		txtFirstName.setBounds(181, 102, 280, 28);
 		contentPane.add(txtFirstName);
 		txtFirstName.setColumns(10);
 		ArrayList<Customer> custList1=custDB.getAll();
@@ -72,7 +80,7 @@ public class MyProfile extends JFrame {
 	
 		
 		txtLastName = new JTextField();
-		txtLastName.setBounds(181, 142, 274, 28);
+		txtLastName.setBounds(181, 164, 274, 28);
 		contentPane.add(txtLastName);
 		txtLastName.setColumns(10);
 		ArrayList<Customer> custList2=custDB.getAll();
@@ -82,7 +90,7 @@ public class MyProfile extends JFrame {
 		
 		txtMobileNumber = new JTextField();
 		txtMobileNumber.setColumns(10);
-		txtMobileNumber.setBounds(181, 205, 274, 28);
+		txtMobileNumber.setBounds(181, 226, 274, 28);
 		contentPane.add(txtMobileNumber);
 		ArrayList<Customer> custList3=custDB.getAll();
 		for(Customer customerList2:custList3 ) {
@@ -92,7 +100,7 @@ public class MyProfile extends JFrame {
 		
 		txtLandNumber = new JTextField();
 		txtLandNumber.setColumns(10);
-		txtLandNumber.setBounds(181, 274, 274, 28);
+		txtLandNumber.setBounds(181, 295, 274, 28);
 		contentPane.add(txtLandNumber);
 		ArrayList<Customer> custList4=custDB.getAll();
 		for(Customer customerList3:custList4) {
@@ -104,25 +112,24 @@ public class MyProfile extends JFrame {
 		btnUpdate.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int ID=0;
+				
 				String accountNumber="";
 				String userName="";
 				String password="";
 				String mobileNumber="";
 				String landNumber="";
-				
+				int ID=Integer.valueOf(txtID.getText());
 				String firstName=txtFirstName.getText();
 				String lastName=txtLastName.getText();
-				ArrayList<Customer> custList2=custDB.getAll();
-				for(Customer custList4:custList2) {
-					ID=custList4.getID();
-				    accountNumber=custList4.getAccountNumber();
-				    userName=custList4.getUserName();
-				    password=custList4.getPassword();
+				Customer custList2=custDB.get(ID);
+				    
+				    accountNumber=custList2.getAccountNumber();
+				    userName=custList2.getUserName();
+				    password=custList2.getPassword();
 				    mobileNumber=txtMobileNumber.getText();
 				    landNumber=txtLandNumber.getText();
 				    
-				}
+			
 				Customer customer=new Customer(ID,firstName,lastName,accountNumber,userName,password,mobileNumber,landNumber);
 				int result=custDB.update(customer);
 				if(result>0) {
@@ -146,6 +153,7 @@ public class MyProfile extends JFrame {
 		});
 		btnUpdatePassword.setBounds(70, 402, 510, 21);
 		contentPane.add(btnUpdatePassword);
+		
 		
 		
 	}
