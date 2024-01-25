@@ -26,10 +26,11 @@ public class MyProfile extends JFrame {
 	private CustomerDB customer;
 	private JTextField txtLastName;
     private CustomerDB custDB;
-    private JButton btnUpdatePassword;
+    private JButton btnBack;
     private JTextField txtMobileNumber;
     private JTextField txtLandNumber;
     private JTextField txtID;
+    private JButton btnUpdatePassword_1;
 	/**
 	 * Launch the application.
 	 */
@@ -52,7 +53,7 @@ public class MyProfile extends JFrame {
 	public MyProfile() {
 		setTitle("My Profile");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 654, 497);
+		setBounds(100, 100, 654, 618);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.ORANGE);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -142,17 +143,23 @@ public class MyProfile extends JFrame {
 		btnUpdate.setBounds(70, 360, 510, 21);
 		contentPane.add(btnUpdate);
 		
-		btnUpdatePassword = new JButton("Change Password");
-		btnUpdatePassword.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnUpdatePassword.addActionListener(new ActionListener() {
+		btnBack = new JButton("Back");
+		btnBack.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
-				ChangePassword changePassword=new ChangePassword();
-				changePassword.setVisible(true);
+				setVisible(false);
+				MainUI mainUI=new MainUI();
+				mainUI.setVisible(true);
 			}
 		});
-		btnUpdatePassword.setBounds(70, 402, 510, 21);
-		contentPane.add(btnUpdatePassword);
+		btnBack.setBounds(70, 445, 510, 21);
+		contentPane.add(btnBack);
+		
+		btnUpdatePassword_1 = new JButton("Change Password");
+		btnUpdatePassword_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnUpdatePassword_1.setBounds(70, 403, 510, 21);
+		contentPane.add(btnUpdatePassword_1);
 		
 		
 		
