@@ -98,10 +98,15 @@ public class CustomerLoginUI extends JFrame {
 				System.out.println(confirmPassword);
 				Customer customer=custDB.get(ID);
 				if(ID==customer.getID() & password.equals(customer.getPassword())) {
-					JOptionPane.showMessageDialog(null, "Login  is  successfully  confirmed");
-					MainUI mainUI=new MainUI();
-					mainUI.setVisible(true);
-					setVisible(false);
+					if(password.equals(confirmPassword)) {
+					 JOptionPane.showMessageDialog(null, "Login  is  successfully  confirmed");
+					 MainUI mainUI=new MainUI();
+					 mainUI.setVisible(true);
+					 setVisible(false);
+					}else {
+						JOptionPane.showMessageDialog(null,"Your confirm password and password shuld be mactch");
+						JOptionPane.showMessageDialog(null,"Check your confirm password and password");
+					}
 				}else {
 					JOptionPane.showMessageDialog(null, "Login is not successfully  confirmed ");
 				}

@@ -53,14 +53,13 @@ public class MyProfile extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 654, 497);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.ORANGE);
+		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		custDB=new CustomerDB();
 		
-		customer=new CustomerDB();
 		
 		txtFirstName = new JTextField();
 		txtFirstName.setBounds(181, 77, 280, 28);
@@ -139,7 +138,10 @@ public class MyProfile extends JFrame {
 		btnUpdatePassword = new JButton("Change Password");
 		btnUpdatePassword.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnUpdatePassword.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) 
+			{
+				ChangePassword changePassword=new ChangePassword();
+				changePassword.setVisible(true);
 			}
 		});
 		btnUpdatePassword.setBounds(70, 402, 510, 21);
