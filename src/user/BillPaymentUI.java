@@ -29,6 +29,7 @@ public class BillPaymentUI extends JFrame {
 	private CustomerDB customerDB;
 	private PaymentDB paymentDB;
 	private JTextField txtAccount;
+	private JButton btnBack;
 
 	/**
 	 * Launch the application.
@@ -52,7 +53,7 @@ public class BillPaymentUI extends JFrame {
 	public BillPaymentUI() {
 		setTitle("Online Payment");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 830, 580);
+		setBounds(100, 100, 723, 551);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -73,10 +74,10 @@ public class BillPaymentUI extends JFrame {
 		paymentDB=new PaymentDB();
 		ArrayList<Customer> cust1=customerDB.getAll();
 		for(Customer custList1:cust1) {
-			txtAccount.setText(custList1.getFirstName()+" "+custList1.getFirstName()+" "+custList1.getLastName());
+			txtAccount.setText(custList1.getAccountNumber()+" "+custList1.getFirstName()+" "+custList1.getLastName());
 		}
 		
-		JLabel lblAmount = new JLabel("Account to be paid");
+		JLabel lblAmount = new JLabel("Amount");
 		lblAmount.setToolTipText("");
 		lblAmount.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblAmount.setBounds(70, 202, 159, 17);
@@ -102,12 +103,9 @@ public class BillPaymentUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String account="";
 				ArrayList<Customer> custList=customerDB.getAll();
-				for(Customer cust1:custList) {
 				   account=txtAccount.getText();
 				   double amount=Double.valueOf(txtAmount.getText());
 				   String email=txtEmail.getText();
-				   
-				   
 				   Payment payment=new Payment(account,amount,email);
 				   int result=paymentDB.add(payment);
 				   if(result==1) {
@@ -116,12 +114,24 @@ public class BillPaymentUI extends JFrame {
 					   JOptionPane.showMessageDialog(null,"Payment transaction is not sucessfully  completed");
 				   }
 				
-				}
+				
 			}
 		});
 		btnProceed.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnProceed.setBounds(491, 424, 108, 21);
+		btnProceed.setBounds(362, 424, 108, 21);
 		contentPane.add(btnProceed);
+		
+		btnBack = new JButton("Back\r\n");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				MainUI mainUI=new MainUI();
+				mainUI.setVisible(true);
+				setVisible(false);
+			}
+		});
+		btnBack.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnBack.setBounds(163, 424, 108, 21);
+		contentPane.add(btnBack);
 		
 	
 	}
