@@ -70,6 +70,13 @@ public class MainUI extends JFrame {
 		menuBar.add(mnLogout);
 		
 		JMenuItem mntmLogOut = new JMenuItem("LogOut");
+		mntmLogOut.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CustomerLoginUI login=new CustomerLoginUI();
+				login.setVisible(true);
+				setVisible(false);
+			}
+		});
 		mntmLogOut.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_L, InputEvent.CTRL_DOWN_MASK));
 		mnLogout.add(mntmLogOut);
 		
