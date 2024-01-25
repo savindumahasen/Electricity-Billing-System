@@ -54,7 +54,7 @@ public class CustomerUI extends JFrame {
 		setResizable(false);
 		setTitle("Customer Registration");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 647, 656);
+		setBounds(100, 100, 687, 716);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -178,8 +178,8 @@ public class CustomerUI extends JFrame {
 				
 			}
 		});
-		btnAdd.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnAdd.setBounds(222, 565, 85, 21);
+		btnAdd.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnAdd.setBounds(222, 620, 85, 21);
 		contentPane.add(btnAdd);
 		
 		JButton btnCancel = new JButton("Cancel");
@@ -188,8 +188,8 @@ public class CustomerUI extends JFrame {
 				System.exit(0);
 			}
 		});
-		btnCancel.setFont(new Font("Tahoma", Font.PLAIN, 14));
-		btnCancel.setBounds(442, 565, 85, 21);
+		btnCancel.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnCancel.setBounds(433, 620, 85, 21);
 		contentPane.add(btnCancel);
 		
 		JLabel lblHeading = new JLabel("Customer Registration");
@@ -202,6 +202,20 @@ public class CustomerUI extends JFrame {
 		lblMobilNumber.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblMobilNumber.setBounds(216, 419, 124, 13);
 		contentPane.add(lblMobilNumber);
+		
+		JButton btnRegisterAlready = new JButton("IF you  have Register Already Please click this button");
+		btnRegisterAlready.setForeground(Color.BLACK);
+		btnRegisterAlready.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnRegisterAlready.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				CustomerLoginUI login=new CustomerLoginUI();
+				login.setVisible(true);
+				setVisible(false);
+			}
+		});
+		btnRegisterAlready.setBounds(216, 553, 438, 21);
+		contentPane.add(btnRegisterAlready);
 	
 	
 	}
