@@ -120,8 +120,8 @@ public class MyProfile extends JFrame {
 				    accountNumber=custList4.getAccountNumber();
 				    userName=custList4.getUserName();
 				    password=custList4.getPassword();
-				    mobileNumber=custList4.getMobileNumber();
-				    landNumber=custList4.getLandNumber();
+				    mobileNumber=txtMobileNumber.getText();
+				    landNumber=txtLandNumber.getText();
 				    
 				}
 				Customer customer=new Customer(ID,firstName,lastName,accountNumber,userName,password,mobileNumber,landNumber);
