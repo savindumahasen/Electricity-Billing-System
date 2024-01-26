@@ -1,13 +1,18 @@
 package data;
 
+import buisness.Customer;
 import buisness.Payment;
+
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
 import org.bson.Document;
 
 import com.mongodb.*;
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 
 public class PaymentDB implements IPayment {
@@ -32,5 +37,29 @@ public class PaymentDB implements IPayment {
 		collection.insertOne(doc);
 		return 1;
 	}
+
+	@Override
+	public ArrayList<Payment> getAll() {
+		// TODO Auto-generated method stub
+		 ArrayList<Payment> paymentList = new ArrayList<Payment>();
+	     MongoCollection<Document> collection = db.getCollection("Payment");
+	     FindIterable<Document> documents = collection.find();
+         MongoCursor<Document> cursor = documents.iterator();
+         while (cursor.hasNext()) {
+             Document document = cursor.next();
+             Payment payment = new Payment(
+                     document.getString("Account"),
+                     document.getDouble("Amount"),
+                     document.getString("Email")
+                   
+             );
+             paymentList.add(payment);
+		
+	
+	}
+     	return paymentList;
+	}
+
+	
 
 }
