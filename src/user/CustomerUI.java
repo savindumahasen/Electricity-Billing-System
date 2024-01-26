@@ -219,4 +219,42 @@ public class CustomerUI extends JFrame {
 	
 	
 	}
+	
+	private boolean checkValidation() {
+		
+		if(txtID.getText().equals("")) {
+			JOptionPane.showMessageDialog(null,"ID cannot be blank");
+			return false;
+		}
+		if(txtFirstName.getText().equals("")) {
+			JOptionPane.showMessageDialog(null,"FirstName cannot be blank");
+			return false;
+			
+		}
+		if(txtLastName.getText().equals("")) {
+			JOptionPane.showMessageDialog(null,"LastName cannot be blank");
+			return false;
+			
+		}
+		if(txtAccountNumber.getText().equals("")) {
+			JOptionPane.showMessageDialog(null,"AccountNumber cannot be blank");
+			return false;
+			
+		}
+		if(txtUserName.getText().equals("")) {
+			JOptionPane.showMessageDialog(null,"UserName cannot be blank");
+		}
+		if(txtPassword.getText().equals("")) {
+			JOptionPane.showMessageDialog(null,"Password cannot be blank");
+			
+		}
+		if(txtMobileNumber.getText().equals("")) {
+			JOptionPane.showMessageDialog(null,"Mobile Number cannot be blank");
+		}
+		if(txtLandNumber.getText().equals("")) {
+			JOptionPane.showMessageDialog(null,"Land Number cannot be blank");
+		}
+		
+		return false;
+	}
 }

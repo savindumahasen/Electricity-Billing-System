@@ -157,6 +157,13 @@ public class MyProfile extends JFrame {
 		contentPane.add(btnBack);
 		
 		btnUpdatePassword_1 = new JButton("Change Password");
+		btnUpdatePassword_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ChangePassword changePassword=new ChangePassword();
+				changePassword.setVisible(true);
+				setVisible(false);
+			}
+		});
 		btnUpdatePassword_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnUpdatePassword_1.setBounds(70, 403, 510, 21);
 		contentPane.add(btnUpdatePassword_1);

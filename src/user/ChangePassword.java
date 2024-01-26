@@ -67,13 +67,13 @@ public class ChangePassword extends JFrame {
 		setLocationRelativeTo(this);
 		
 		txtID = new JTextField();
-		txtID.setBounds(233, 123, 141, 19);
+		txtID.setBounds(255, 123, 141, 19);
 		contentPane.add(txtID);
 		txtID.setColumns(10);
 		
 		txtFirstName = new JTextField();
 		txtFirstName.setColumns(10);
-		txtFirstName.setBounds(454, 123, 168, 19);
+		txtFirstName.setBounds(484, 123, 168, 19);
 		contentPane.add(txtFirstName);
 		txtFirstName.setVisible(false);
 
@@ -81,47 +81,47 @@ public class ChangePassword extends JFrame {
 		
 		txtLastName = new JTextField();
 		txtLastName.setColumns(10);
-		txtLastName.setBounds(454, 182, 168, 19);
+		txtLastName.setBounds(484, 167, 168, 19);
 		contentPane.add(txtLastName);
 		txtLastName.setVisible(false);
 		
 		txtAccountNumber = new JTextField();
 		txtAccountNumber.setColumns(10);
-		txtAccountNumber.setBounds(454, 237, 168, 19);
+		txtAccountNumber.setBounds(484, 235, 168, 19);
 		contentPane.add(txtAccountNumber);
 		txtAccountNumber.setVisible(false);
 		
 		txtPassword = new JPasswordField();
-		txtPassword.setBounds(454, 283, 168, 19);
+		txtPassword.setBounds(497, 281, 168, 19);
 		contentPane.add(txtPassword);
 		
 		txtMobileNumber = new JTextField();
-		txtMobileNumber.setBounds(454, 343, 168, 19);
+		txtMobileNumber.setBounds(484, 343, 168, 19);
 		contentPane.add(txtMobileNumber);
 		txtMobileNumber.setColumns(10);
 		txtMobileNumber.setVisible(false);
 		
 		txtLandNumber = new JTextField();
 		txtLandNumber.setColumns(10);
-		txtLandNumber.setBounds(454, 404, 168, 19);
+		txtLandNumber.setBounds(484, 396, 168, 19);
 		contentPane.add(txtLandNumber);
 		txtLandNumber.setVisible(false);
 		
 		txtCurrentPassword = new JTextField();
-		txtCurrentPassword.setBounds(233, 182, 141, 19);
+		txtCurrentPassword.setBounds(255, 187, 141, 19);
 		contentPane.add(txtCurrentPassword);
 		txtCurrentPassword.setColumns(10);
 		
 		txtNewPassword = new JTextField();
 		txtNewPassword.setColumns(10);
-		txtNewPassword.setBounds(233, 269, 173, 19);
+		txtNewPassword.setBounds(255, 255, 141, 19);
 		contentPane.add(txtNewPassword);
 		txtPassword.setVisible(false);
 
 		
 		txtConfirmNewPassword = new JTextField();
 		txtConfirmNewPassword.setColumns(10);
-		txtConfirmNewPassword.setBounds(233, 343, 173, 19);
+		txtConfirmNewPassword.setBounds(254, 331, 142, 19);
 		contentPane.add(txtConfirmNewPassword);
 
 		
@@ -195,7 +195,7 @@ public class ChangePassword extends JFrame {
 		
 		JLabel lblNewConfirmPassword = new JLabel("Confirm New Password");
 		lblNewConfirmPassword.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblNewConfirmPassword.setBounds(44, 344, 168, 13);
+		lblNewConfirmPassword.setBounds(59, 332, 168, 13);
 		contentPane.add(lblNewConfirmPassword);
 		
 		JLabel lblID = new JLabel("ID");
