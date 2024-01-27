@@ -90,6 +90,7 @@ public class CustomerLoginUI extends JFrame {
 		JButton btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(checkValidation()) {
 				int ID=Integer.valueOf(txtID.getText());
 				String password=txtPassword.getText();
 				String confirmPassword=txtConfirmPassword.getText();
@@ -111,6 +112,7 @@ public class CustomerLoginUI extends JFrame {
 					JOptionPane.showMessageDialog(null, "Login is not successfully  confirmed ");
 				}
 				
+			}
 			}
 		});
 		btnLogin.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -139,5 +141,22 @@ public class CustomerLoginUI extends JFrame {
 	
 		
 		setLocationRelativeTo(this);
+	}
+	private boolean checkValidation() {
+		
+		if(txtID.getText().equals("")) {
+			JOptionPane.showMessageDialog(null,"ID cannot be blank");
+			return false;
+		}
+		if(txtPassword.getText().equals("")) {
+			JOptionPane.showMessageDialog(null,"Password cannot be blank");
+			return false;
+		}
+		if(txtConfirmPassword.getText().equals("")) {
+			JOptionPane.showMessageDialog(null,"Confirm Password cannot be blank");
+			return false;
+		}
+		
+		return true;
 	}
 }
