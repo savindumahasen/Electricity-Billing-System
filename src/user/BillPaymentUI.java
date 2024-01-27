@@ -10,8 +10,11 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -36,6 +39,7 @@ public class BillPaymentUI extends JFrame {
 	private JTextField txtID;
 	private JLabel lblID;
 	private JTextField txtID1;
+	private JLabel lbl6;
 
 	/**
 	 * Launch the application.
@@ -59,9 +63,9 @@ public class BillPaymentUI extends JFrame {
 	public BillPaymentUI() {
 		setTitle("Online Payment");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 723, 478);
+		setBounds(100, 100, 664, 478);
 		contentPane = new JPanel();
-		contentPane.setBackground(Color.ORANGE);
+		contentPane.setBackground(Color.LIGHT_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -71,6 +75,7 @@ public class BillPaymentUI extends JFrame {
 
 		LocalDate currentDate = LocalDate.now();
 		JLabel lblAccount = new JLabel("Account to be paid");
+		lblAccount.setForeground(Color.WHITE);
 		lblAccount.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblAccount.setToolTipText("");
 		lblAccount.setBounds(70, 144, 159, 17);
@@ -85,16 +90,18 @@ public class BillPaymentUI extends JFrame {
 		paymentDB=new PaymentDB();
 		
 		lblID = new JLabel("ID\r\n");
+		lblID.setForeground(Color.WHITE);
 		lblID.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblID.setBounds(70, 94, 78, 13);
 		contentPane.add(lblID);
 		
 		txtID1 = new JTextField();
 		txtID1.setColumns(10);
-		txtID1.setBounds(428, 91, 198, 19);
+		txtID1.setBounds(428, 93, 198, 19);
 		contentPane.add(txtID1);
 	
 		JLabel lblAmount = new JLabel("Amount");
+		lblAmount.setForeground(Color.WHITE);
 		lblAmount.setToolTipText("");
 		lblAmount.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblAmount.setBounds(70, 205, 159, 17);
@@ -106,6 +113,7 @@ public class BillPaymentUI extends JFrame {
 		txtAmount.setColumns(10);
 		
 		JLabel lblEmail = new JLabel("UserName");
+		lblEmail.setForeground(Color.WHITE);
 		lblEmail.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblEmail.setBounds(70, 272, 132, 13);
 		contentPane.add(lblEmail);
@@ -164,6 +172,13 @@ public class BillPaymentUI extends JFrame {
 		btnBack.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnBack.setBounds(150, 369, 108, 21);
 		contentPane.add(btnBack);
+		
+		lbl6 = new JLabel("");
+		lbl6.setBounds(0, 0, 650, 441);
+		contentPane.add(lbl6);
+		Image billPaymentImage = new ImageIcon(this.getClass().getResource("/Bill-Payment.png")).getImage();
+		lbl6.setIcon(new ImageIcon(billPaymentImage));
+	
 		
 	
 	

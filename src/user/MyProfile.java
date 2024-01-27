@@ -13,10 +13,13 @@ import javax.swing.JTextField;
 import buisness.Customer;
 import data.CustomerDB;
 import buisness.Customer;
+
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.Color;
 
 public class MyProfile extends JFrame {
@@ -31,6 +34,7 @@ public class MyProfile extends JFrame {
     private JTextField txtLandNumber;
     private JTextField txtID;
     private JButton btnUpdatePassword_1;
+    private JLabel lbl8;
 	/**
 	 * Launch the application.
 	 */
@@ -167,6 +171,14 @@ public class MyProfile extends JFrame {
 		btnUpdatePassword_1.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnUpdatePassword_1.setBounds(70, 403, 510, 21);
 		contentPane.add(btnUpdatePassword_1);
+		
+		lbl8 = new JLabel("");
+		lbl8.setBounds(0, 0, 640, 581);
+		contentPane.add(lbl8);
+		Image myProfileImage = new ImageIcon(this.getClass().getResource("/MyProfile.png")).getImage();
+		lbl8.setIcon(new ImageIcon(myProfileImage));
+	
+	
 		
 		
 		

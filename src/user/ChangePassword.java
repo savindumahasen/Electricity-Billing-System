@@ -7,8 +7,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
@@ -35,6 +37,7 @@ public class ChangePassword extends JFrame {
 	private JTextField txtMobileNumber;
 	private JTextField txtLandNumber;
 	private JTextField txtFirstName;
+	private JLabel lbl7;
 
 	/**
 	 * Launch the application.
@@ -141,21 +144,20 @@ public class ChangePassword extends JFrame {
 				String newPassword=txtNewPassword.getText();
 				String confirmNewPassword=txtConfirmNewPassword.getText();
 				
-				ArrayList<Customer>custList=custDB.getAll();
-				System.out.println(custList);
+				Customer customer=custDB.get(ID);
+				System.out.println(customer);
 			    
-				for(Customer custList1:custList) {
-					if(ID==custList1.getID())
-						firstName=custList1.getFirstName();
-					    lastName=custList1.getLastName();
-					    accountNumber=custList1.getAccountNumber();
-					    userName=custList1.getUserName();
-					    mobileNumber=custList1.getMobileNumber();
-					    landNumber=custList1.getLandNumber();
-					if(currentPassword.equals(custList1.getPassword())){
+					if(ID==customer.getID())
+						firstName=customer.getFirstName();
+					    lastName=customer.getLastName();
+					    accountNumber=customer.getAccountNumber();
+					    userName=customer.getUserName();
+					    mobileNumber=customer.getMobileNumber();
+					    landNumber=customer.getLandNumber();
+					if(currentPassword.equals(customer.getPassword())){
 						if(newPassword.equals(confirmNewPassword)) {
-							Customer customer=new Customer(ID, firstName,lastName,accountNumber,userName,newPassword, mobileNumber,landNumber);
-							int result=custDB.update(customer);
+							Customer customer1=new Customer(ID, firstName,lastName,accountNumber,userName,newPassword, mobileNumber,landNumber);
+							int result=custDB.update(customer1);
 							if(result>0) {
 								JOptionPane.showMessageDialog(null, "Pasword is update successfully  confirmed");
 							}else {
@@ -166,7 +168,7 @@ public class ChangePassword extends JFrame {
 						
 					}
 					
-				}
+				
 			}
 		});
 		btnChange.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -184,24 +186,34 @@ public class ChangePassword extends JFrame {
 		contentPane.add(btnBack);
 		
 		JLabel lblCurrentPassword = new JLabel("Password\r\n");
+		lblCurrentPassword.setForeground(Color.WHITE);
 		lblCurrentPassword.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblCurrentPassword.setBounds(127, 188, 117, 13);
 		contentPane.add(lblCurrentPassword);
 		
 		JLabel lblNewPassword = new JLabel("New Password");
+		lblNewPassword.setForeground(Color.WHITE);
 		lblNewPassword.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewPassword.setBounds(95, 269, 117, 13);
 		contentPane.add(lblNewPassword);
 		
 		JLabel lblNewConfirmPassword = new JLabel("Confirm New Password");
+		lblNewConfirmPassword.setForeground(Color.WHITE);
 		lblNewConfirmPassword.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNewConfirmPassword.setBounds(59, 332, 168, 13);
 		contentPane.add(lblNewConfirmPassword);
 		
 		JLabel lblID = new JLabel("ID");
+		lblID.setForeground(Color.WHITE);
 		lblID.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblID.setBounds(152, 124, 45, 13);
 		contentPane.add(lblID);
+		
+		lbl7 = new JLabel("");
+		lbl7.setBounds(0, 0, 652, 535);
+		contentPane.add(lbl7);
+		Image changePasswordImage = new ImageIcon(this.getClass().getResource("/Registration.jpg")).getImage();
+		lbl7.setIcon(new ImageIcon(changePasswordImage));
 		
 	
 		

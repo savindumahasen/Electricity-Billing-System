@@ -10,7 +10,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JPasswordField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.ActionListener;
@@ -66,6 +69,7 @@ public class CustomerUI extends JFrame {
 		custDB=new CustomerDB();
 		
 		JLabel lblID = new JLabel("ID");
+		lblID.setForeground(Color.WHITE);
 		lblID.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblID.setBounds(216, 86, 45, 13);
 		contentPane.add(lblID);
@@ -76,7 +80,7 @@ public class CustomerUI extends JFrame {
 		txtID.setColumns(10);
 		
 		JLabel lblFirstName = new JLabel("First Name");
-		lblFirstName.setForeground(Color.BLACK);
+		lblFirstName.setForeground(Color.WHITE);
 		lblFirstName.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblFirstName.setBounds(216, 123, 107, 19);
 		contentPane.add(lblFirstName);
@@ -87,7 +91,7 @@ public class CustomerUI extends JFrame {
 		txtFirstName.setColumns(10);
 		
 		JLabel lblLastName = new JLabel("Last Name");
-		lblLastName.setForeground(Color.BLACK);
+		lblLastName.setForeground(Color.WHITE);
 		lblLastName.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblLastName.setBounds(216, 184, 91, 13);
 		contentPane.add(lblLastName);
@@ -98,7 +102,7 @@ public class CustomerUI extends JFrame {
 		txtLastName.setColumns(10);
 		
 		JLabel lblAccountNumber = new JLabel("AccountNumber");
-		lblAccountNumber.setForeground(Color.BLACK);
+		lblAccountNumber.setForeground(Color.WHITE);
 		lblAccountNumber.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblAccountNumber.setBounds(216, 241, 124, 27);
 		contentPane.add(lblAccountNumber);
@@ -109,7 +113,7 @@ public class CustomerUI extends JFrame {
 		contentPane.add(txtAccountNumber);
 		
 		JLabel lblUserName = new JLabel("UserName");
-		lblUserName.setForeground(Color.BLACK);
+		lblUserName.setForeground(Color.WHITE);
 		lblUserName.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblUserName.setBounds(216, 308, 91, 13);
 		contentPane.add(lblUserName);
@@ -120,7 +124,7 @@ public class CustomerUI extends JFrame {
 		txtUserName.setColumns(10);
 		
 		JLabel lblPassword = new JLabel("Password");
-		lblPassword.setForeground(Color.BLACK);
+		lblPassword.setForeground(Color.WHITE);
 		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblPassword.setBounds(216, 367, 91, 13);
 		contentPane.add(lblPassword);
@@ -137,6 +141,7 @@ public class CustomerUI extends JFrame {
 		txtMobileNumber.setColumns(10);
 		
 		JLabel lblLandNumber = new JLabel("Land Number");
+		lblLandNumber.setForeground(Color.WHITE);
 		lblLandNumber.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblLandNumber.setBounds(216, 475, 124, 13);
 		contentPane.add(lblLandNumber);
@@ -193,23 +198,24 @@ public class CustomerUI extends JFrame {
 			}
 		});
 		btnCancel.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnCancel.setBounds(433, 620, 85, 21);
+		btnCancel.setBounds(432, 620, 85, 21);
 		contentPane.add(btnCancel);
 		
 		JLabel lblHeading = new JLabel("Customer Registration");
-		lblHeading.setForeground(Color.BLACK);
+		lblHeading.setForeground(Color.WHITE);
 		lblHeading.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lblHeading.setBounds(226, 24, 291, 36);
 		contentPane.add(lblHeading);
 		
 		JLabel lblMobilNumber = new JLabel("Mobile Number");
+		lblMobilNumber.setForeground(Color.WHITE);
 		lblMobilNumber.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblMobilNumber.setBounds(216, 419, 124, 13);
 		contentPane.add(lblMobilNumber);
 		
-		JButton btnRegisterAlready = new JButton("IF you  have Register Already Please click this button");
+		JButton btnRegisterAlready = new JButton("Login");
 		btnRegisterAlready.setForeground(Color.BLACK);
-		btnRegisterAlready.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnRegisterAlready.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnRegisterAlready.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -218,8 +224,15 @@ public class CustomerUI extends JFrame {
 				setVisible(false);
 			}
 		});
-		btnRegisterAlready.setBounds(216, 553, 438, 21);
+		btnRegisterAlready.setBounds(301, 546, 187, 21);
 		contentPane.add(btnRegisterAlready);
+		
+		JLabel lbl3 = new JLabel("");
+		lbl3.setBounds(0, 0, 663, 679);
+		contentPane.add(lbl3);
+		Image registerImage = new ImageIcon(this.getClass().getResource("/Registration.jpg")).getImage();
+		lbl3.setIcon(new ImageIcon(registerImage));
+	
 	
 	
 	}

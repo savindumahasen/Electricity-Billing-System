@@ -10,8 +10,11 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.event.ActionListener;
@@ -59,6 +62,7 @@ public class CustomerLoginUI extends JFrame {
 		custDB=new CustomerDB();
 		
 		JLabel lblID = new JLabel("ID");
+		lblID.setForeground(Color.WHITE);
 		lblID.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblID.setBounds(104, 98, 45, 13);
 		contentPane.add(lblID);
@@ -69,6 +73,7 @@ public class CustomerLoginUI extends JFrame {
 		txtID.setColumns(10);
 		
 		JLabel lblPassword = new JLabel("Password");
+		lblPassword.setForeground(Color.WHITE);
 		lblPassword.setToolTipText("Password");
 		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblPassword.setBounds(101, 171, 99, 13);
@@ -79,6 +84,7 @@ public class CustomerLoginUI extends JFrame {
 		contentPane.add(txtPassword);
 		
 		JLabel lblConfirmPassword = new JLabel("Confirm Password");
+		lblConfirmPassword.setForeground(Color.WHITE);
 		lblConfirmPassword.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblConfirmPassword.setBounds(101, 234, 142, 13);
 		contentPane.add(lblConfirmPassword);
@@ -134,10 +140,16 @@ public class CustomerLoginUI extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		JLabel lblHeading = new JLabel("Login");
-		lblHeading.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblHeading.setForeground(Color.ORANGE);
+		lblHeading.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblHeading.setBounds(214, 29, 134, 30);
 		contentPane.add(lblHeading);
 		
+		JLabel lbl4 = new JLabel("New label");
+		lbl4.setBounds(0, 0, 514, 398);
+		contentPane.add(lbl4);
+		Image loginImage = new ImageIcon(this.getClass().getResource("/Login.jpg")).getImage();
+		lbl4.setIcon(new ImageIcon(loginImage));
 	
 		
 		setLocationRelativeTo(this);

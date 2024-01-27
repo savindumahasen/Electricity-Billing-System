@@ -2,6 +2,7 @@ package user;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Image;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,6 +15,10 @@ import java.awt.event.KeyEvent;
 import java.awt.event.InputEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
+import javax.swing.ImageIcon;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
 
 public class MainUI extends JFrame {
 
@@ -101,5 +106,12 @@ public class MainUI extends JFrame {
 		});
 		mntmMyProfile.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_P, InputEvent.CTRL_DOWN_MASK | InputEvent.ALT_DOWN_MASK));
 		mnProfile.add(mntmMyProfile);
+		getContentPane().setLayout(null);
+		
+		JLabel lbl3 = new JLabel("");
+		lbl3.setBounds(0, 10, 852, 535);
+		getContentPane().add(lbl3);
+		Image dashboardImage = new ImageIcon(this.getClass().getResource("/DashboardImage.jpg")).getImage();
+		lbl3.setIcon(new ImageIcon(dashboardImage));
 	}
 }
