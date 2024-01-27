@@ -91,11 +91,7 @@ public class CustomerDB implements ICustomer {
                 .append("MobileNumber", obj.getMobileNumber())
                 .append("LandNumber", obj.getLandNumber()));
         
-        
-            System.out.println(obj.getLandNumber());
-        
-           collection.updateOne(filter, updateDocument);
-           System.out.println("#### Update is successfully completed");
+          collection.updateOne(filter, updateDocument);
         return 1;
 	}
 	
