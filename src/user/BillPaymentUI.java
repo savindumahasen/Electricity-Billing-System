@@ -103,7 +103,7 @@ public class BillPaymentUI extends JFrame {
 		contentPane.add(txtAmount);
 		txtAmount.setColumns(10);
 		
-		JLabel lblEmail = new JLabel("Email Address");
+		JLabel lblEmail = new JLabel("UserName");
 		lblEmail.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblEmail.setBounds(70, 272, 132, 13);
 		contentPane.add(lblEmail);
@@ -121,7 +121,7 @@ public class BillPaymentUI extends JFrame {
 				   double amount=Double.valueOf(txtAmount.getText());
 				   String email=txtEmail.getText();
 				   Customer customer=customerDB.get(ID);
-				   if(account.equals(customer.getAccountNumber())){
+				   if(account.equals(customer.getAccountNumber())&&(email.equals(customer.getUserName()))){
                      Payment payment=new Payment(account,amount,email);
 				     int result=paymentDB.add(payment);
 				     if(result==1) {
