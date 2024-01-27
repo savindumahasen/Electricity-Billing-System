@@ -21,6 +21,8 @@ import data.CustomerDB;
 import data.PaymentDB;
 import buisness.Payment;
 import java.awt.Color;
+import java.time.LocalDate;
+
 
 public class BillPaymentUI extends JFrame {
 
@@ -67,7 +69,7 @@ public class BillPaymentUI extends JFrame {
 		setLocationRelativeTo(this);
 		
 
-		
+		LocalDate currentDate = LocalDate.now();
 		JLabel lblAccount = new JLabel("Account to be paid");
 		lblAccount.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblAccount.setToolTipText("");
@@ -126,7 +128,15 @@ public class BillPaymentUI extends JFrame {
                          Payment payment=new Payment(account,amount,email);
 				         int result=paymentDB.add(payment);
 				         if(result==1) {
-					      JOptionPane.showMessageDialog(null,"Payment transaction is sucessfully  completed");
+					      JOptionPane.showMessageDialog(null,"Transaction is sucessfully  completed");
+					      System.out.println("Transaction is sucessfully  completed");
+					      System.out.println("------------------Bill Payment Details-------------------");
+					      System.out.println("Paid Name : "+customer.getFirstName()+" "+customer.getLastName());
+					      System.out.println("From : "+account);
+					      System.out.println("Amount : "+amount);
+					      System.out.println("Date : "+currentDate);
+					      
+					      
 				         }else {
 					   JOptionPane.showMessageDialog(null,"Payment transaction is not sucessfully  completed");
 				     }
