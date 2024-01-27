@@ -178,7 +178,10 @@ public class ChangePassword extends JFrame {
 		JButton btnBack = new JButton("Back");
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				MainUI mainUI=new MainUI();
+				mainUI.setVisible(true);
 				setVisible(false);
+				
 			}
 		});
 		btnBack.setFont(new Font("Tahoma", Font.BOLD, 14));
