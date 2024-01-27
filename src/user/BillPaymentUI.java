@@ -121,14 +121,18 @@ public class BillPaymentUI extends JFrame {
 				   double amount=Double.valueOf(txtAmount.getText());
 				   String email=txtEmail.getText();
 				   Customer customer=customerDB.get(ID);
-				   if(account.equals(customer.getAccountNumber())&&(email.equals(customer.getUserName()))){
-                     Payment payment=new Payment(account,amount,email);
-				     int result=paymentDB.add(payment);
-				     if(result==1) {
-					   JOptionPane.showMessageDialog(null,"Payment transaction is sucessfully  completed");
-				     }else {
+				   if(account.equals(customer.getAccountNumber())){
+					if(email.equals(customer.getUserName())) {
+                         Payment payment=new Payment(account,amount,email);
+				         int result=paymentDB.add(payment);
+				         if(result==1) {
+					      JOptionPane.showMessageDialog(null,"Payment transaction is sucessfully  completed");
+				         }else {
 					   JOptionPane.showMessageDialog(null,"Payment transaction is not sucessfully  completed");
 				     }
+					}else {
+						JOptionPane.showMessageDialog(null,"Please Enter the correct UserName");
+					}
 				
 				   }else {
 					JOptionPane.showMessageDialog(null,"Please Enter the correct Account Number");
@@ -136,7 +140,7 @@ public class BillPaymentUI extends JFrame {
 			}
 		});
 		btnProceed.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnProceed.setBounds(367, 369, 108, 21);
+		btnProceed.setBounds(380, 369, 108, 21);
 		contentPane.add(btnProceed);
 		
 		btnBack = new JButton("Back\r\n");
@@ -156,4 +160,5 @@ public class BillPaymentUI extends JFrame {
 		
 	
 	}
+	
 }
