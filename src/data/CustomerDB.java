@@ -32,12 +32,12 @@ public class CustomerDB implements ICustomer {
         System.out.println("Get database is successful");
         
      // listing all databases in mongoDB 
-        System.out.println("Below are list of databases present in MongoDB");
+        //System.out.println("Below are list of databases present in MongoDB");
        // To get all database names        
-        MongoCursor<String> dbsCursor = mongoClient.listDatabaseNames().iterator();
-          while(dbsCursor.hasNext()) {
-                 System.out.println(dbsCursor.next());
-             }
+       // MongoCursor<String> dbsCursor = mongoClient.listDatabaseNames().iterator();
+         // while(dbsCursor.hasNext()) {
+                 //System.out.println(dbsCursor.next());
+             //}
 		
 	}
 
