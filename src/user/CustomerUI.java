@@ -150,6 +150,7 @@ public class CustomerUI extends JFrame {
 		JButton btnAdd = new JButton("Add");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(checkValidation()) {
 				int ID=Integer.valueOf(txtID.getText());
 				String firstName=txtFirstName.getText();
 				String lastName=txtLastName.getText();
@@ -171,6 +172,9 @@ public class CustomerUI extends JFrame {
 					JOptionPane.showMessageDialog(null, "Customer Registration is not successfully confirmed");
 				}
 				
+				}else {
+					
+				}
 				
 				
 				
@@ -226,6 +230,13 @@ public class CustomerUI extends JFrame {
 			JOptionPane.showMessageDialog(null,"ID cannot be blank");
 			return false;
 		}
+		try {
+			
+			int ID=Integer.valueOf(txtID.getText());
+			
+		}catch(Exception e) {
+			JOptionPane.showMessageDialog(null,"ID should be numberic");
+		}
 		if(txtFirstName.getText().equals("")) {
 			JOptionPane.showMessageDialog(null,"FirstName cannot be blank");
 			return false;
@@ -243,18 +254,23 @@ public class CustomerUI extends JFrame {
 		}
 		if(txtUserName.getText().equals("")) {
 			JOptionPane.showMessageDialog(null,"UserName cannot be blank");
+			return false;
 		}
+	
 		if(txtPassword.getText().equals("")) {
 			JOptionPane.showMessageDialog(null,"Password cannot be blank");
+			return false;
 			
 		}
 		if(txtMobileNumber.getText().equals("")) {
 			JOptionPane.showMessageDialog(null,"Mobile Number cannot be blank");
+			return false;
 		}
 		if(txtLandNumber.getText().equals("")) {
 			JOptionPane.showMessageDialog(null,"Land Number cannot be blank");
+			return false;
 		}
 		
-		return false;
+		return true;
 	}
 }
