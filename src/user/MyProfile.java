@@ -173,7 +173,7 @@ public class MyProfile extends JFrame {
 		contentPane.add(btnUpdatePassword_1);
 		
 		lbl8 = new JLabel("");
-		lbl8.setBounds(0, 0, 640, 581);
+		lbl8.setBounds(0, 0, 640, 571);
 		contentPane.add(lbl8);
 		Image myProfileImage = new ImageIcon(this.getClass().getResource("/MyProfile.png")).getImage();
 		lbl8.setIcon(new ImageIcon(myProfileImage));
