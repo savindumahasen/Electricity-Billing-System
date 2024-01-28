@@ -101,7 +101,7 @@ public class MyProfile extends JFrame {
 		btnFind = new JButton("Search\r\n");
 		btnFind.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int ID= Integer.valueOf(JOptionPane.showInputDialog(null,txtID.getText()));
+				int ID= Integer.valueOf(JOptionPane.showInputDialog("",txtID.getText()));
 				Customer customer=custDB.get(ID);
 				txtID.setText(String.valueOf(customer.getID()));
 				txtFirstName.setText(customer.getFirstName());
