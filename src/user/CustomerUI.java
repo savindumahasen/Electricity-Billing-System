@@ -194,7 +194,7 @@ public class CustomerUI extends JFrame {
 		JButton btnCancel = new JButton("Cancel");
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				System.exit(0);  // exit the system
 			}
 		});
 		btnCancel.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -204,7 +204,7 @@ public class CustomerUI extends JFrame {
 		JLabel lblHeading = new JLabel("Customer Registration");
 		lblHeading.setForeground(Color.WHITE);
 		lblHeading.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lblHeading.setBounds(226, 24, 291, 36);
+		lblHeading.setBounds(226, 23, 291, 36);
 		contentPane.add(lblHeading);
 		
 		JLabel lblMobilNumber = new JLabel("Mobile Number");
@@ -219,7 +219,7 @@ public class CustomerUI extends JFrame {
 		btnRegisterAlready.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				CustomerLoginUI login=new CustomerLoginUI();
+				CustomerLoginUI login=new CustomerLoginUI(); //create the CustomerLoginUI obeject
 				login.setVisible(true);
 				setVisible(false);
 			}
@@ -228,8 +228,10 @@ public class CustomerUI extends JFrame {
 		contentPane.add(btnRegisterAlready);
 		
 		JLabel lbl3 = new JLabel("");
-		lbl3.setBounds(0, 0, 663, 679);
+		lbl3.setBounds(0, 0, 673, 679);
 		contentPane.add(lbl3);
+		
+		// Insert the image
 		Image registerImage = new ImageIcon(this.getClass().getResource("/Registration.jpg")).getImage();
 		lbl3.setIcon(new ImageIcon(registerImage));
 	
