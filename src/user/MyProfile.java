@@ -34,7 +34,11 @@ public class MyProfile extends JFrame {
     private JTextField txtLandNumber;
     private JTextField txtID;
     private JButton btnUpdatePassword_1;
-    private JLabel lbl8;
+    private JButton btnNewButton_1;
+    private JButton btnSearch;
+    private JButton btnNewButton;
+    private JButton btnNewButton_2;
+    private JButton btnFind;
 	/**
 	 * Launch the application.
 	 */
@@ -69,49 +73,44 @@ public class MyProfile extends JFrame {
 		txtID.setColumns(10);
 		txtID.setBounds(181, 45, 280, 28);
 		contentPane.add(txtID);
-		ArrayList<Customer> custList0=custDB.getAll();
-		for(Customer custList1:custList0) {
-			txtID.setText(String.valueOf(custList1.getID()));
-		}
 		
 		txtFirstName = new JTextField();
 		txtFirstName.setBounds(181, 102, 280, 28);
 		contentPane.add(txtFirstName);
 		txtFirstName.setColumns(10);
-		ArrayList<Customer> custList1=custDB.getAll();
-		for(Customer customerList:custList1) {
-		txtFirstName.setText(customerList.getFirstName());
-		}
-	
+		
 		
 		txtLastName = new JTextField();
 		txtLastName.setBounds(181, 164, 274, 28);
 		contentPane.add(txtLastName);
 		txtLastName.setColumns(10);
-		ArrayList<Customer> custList2=custDB.getAll();
-		for(Customer customerList1:custList2) {
-		txtLastName.setText(customerList1.getLastName());
-		}
 		
 		txtMobileNumber = new JTextField();
 		txtMobileNumber.setColumns(10);
 		txtMobileNumber.setBounds(181, 226, 274, 28);
 		contentPane.add(txtMobileNumber);
-		ArrayList<Customer> custList3=custDB.getAll();
-		for(Customer customerList2:custList3 ) {
-			txtMobileNumber.setText(customerList2.getMobileNumber());
-			
-		}
 		
 		txtLandNumber = new JTextField();
 		txtLandNumber.setColumns(10);
 		txtLandNumber.setBounds(181, 295, 274, 28);
 		contentPane.add(txtLandNumber);
-		ArrayList<Customer> custList4=custDB.getAll();
-		for(Customer customerList3:custList4) {
-			txtLandNumber.setText(customerList3.getLandNumber());
-		}
+		
 		setLocationRelativeTo(this);
+		
+
+		btnFind = new JButton("Search\r\n");
+		btnFind.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int ID= Integer.valueOf(JOptionPane.showInputDialog(null,txtID.getText()));
+				Customer customer=custDB.get(ID);
+				txtID.setText(String.valueOf(customer.getID()));
+				txtFirstName.setText(customer.getFirstName());
+				txtLastName.setText(customer.getLastName());
+				txtMobileNumber.setText(customer.getMobileNumber());
+				txtLandNumber.setText(customer.getLandNumber());
+				
+			}
+		});
 		
 		JButton btnUpdate = new JButton("Edit Profile");
 		btnUpdate.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -144,7 +143,7 @@ public class MyProfile extends JFrame {
 				}
 			}
 		});
-		btnUpdate.setBounds(70, 360, 510, 21);
+		btnUpdate.setBounds(70, 425, 510, 21);
 		contentPane.add(btnUpdate);
 		
 		btnBack = new JButton("Back");
@@ -157,7 +156,7 @@ public class MyProfile extends JFrame {
 				mainUI.setVisible(true);
 			}
 		});
-		btnBack.setBounds(70, 445, 510, 21);
+		btnBack.setBounds(70, 490, 510, 21);
 		contentPane.add(btnBack);
 		
 		btnUpdatePassword_1 = new JButton("Change Password");
@@ -169,14 +168,22 @@ public class MyProfile extends JFrame {
 			}
 		});
 		btnUpdatePassword_1.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnUpdatePassword_1.setBounds(70, 403, 510, 21);
+		btnUpdatePassword_1.setBounds(70, 456, 510, 21);
 		contentPane.add(btnUpdatePassword_1);
 		
-		lbl8 = new JLabel("");
-		lbl8.setBounds(0, 0, 640, 571);
-		contentPane.add(lbl8);
+		btnFind.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnFind.setBounds(70, 394, 510, 21);
+		contentPane.add(btnFind);
+		
+		JLabel lbl10 = new JLabel("New label");
+		lbl10.setBounds(0, 0, 640, 581);
+		contentPane.add(lbl10);
 		Image myProfileImage = new ImageIcon(this.getClass().getResource("/MyProfile.png")).getImage();
-		lbl8.setIcon(new ImageIcon(myProfileImage));
+		lbl10.setIcon(new ImageIcon(myProfileImage));
+		
+		
+	
+
 	
 	
 		
