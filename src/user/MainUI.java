@@ -114,4 +114,7 @@ public class MainUI extends JFrame {
 		Image dashboardImage = new ImageIcon(this.getClass().getResource("/DashboardImage.jpg")).getImage();
 		lbl3.setIcon(new ImageIcon(dashboardImage));
 	}
+	
+
+	
 }
