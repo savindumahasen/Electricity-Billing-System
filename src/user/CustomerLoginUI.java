@@ -160,6 +160,12 @@ public class CustomerLoginUI extends JFrame {
 			JOptionPane.showMessageDialog(null,"ID cannot be blank");
 			return false;
 		}
+		try {
+			int ID=Integer.valueOf(txtID.getText());
+		}catch(Exception e) {
+			JOptionPane.showMessageDialog(null,"ID must be numeric");
+			return false;
+		}
 		if(txtPassword.getText().equals("")) {
 			JOptionPane.showMessageDialog(null,"Password cannot be blank");
 			return false;
