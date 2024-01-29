@@ -101,7 +101,7 @@ public class MyProfile extends JFrame {
 		btnFind = new JButton("Search\r\n");
 		btnFind.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(checkValidation()) {
+				
 				int ID= Integer.valueOf(JOptionPane.showInputDialog("",txtID.getText()));
 				Customer customer=custDB.get(ID);
 				txtID.setText(String.valueOf(customer.getID()));
@@ -111,7 +111,7 @@ public class MyProfile extends JFrame {
 				txtLandNumber.setText(customer.getLandNumber());
 				
 			}
-			}
+			
 		});
 		
 		JButton btnUpdate = new JButton("Edit Profile");
@@ -194,16 +194,22 @@ public class MyProfile extends JFrame {
 	}
 	private boolean checkValidation() {
 		
-		if(txtID.getText().equals("")) {
-			JOptionPane.showMessageDialog(null,"ID cannot be blank");
+		if(txtFirstName.getText().equals("")) {
+			JOptionPane.showMessageDialog(null,"FirstName cannot be blank");
 			return false;
 		}
-		try {
-			int ID=Integer.valueOf(txtID.getText());
-		}catch(Exception e) {
-			JOptionPane.showMessageDialog(null,"ID should be numberic");
-			return false;
-		}
+	    if(txtLastName.getText().equals("")) {
+	    	JOptionPane.showMessageDialog(null,"LastName cannot be blank");
+	    	return false;
+	    }
+	    if(txtMobileNumber.getText().equals("")) {
+	    	JOptionPane.showMessageDialog(null,"Mobile Number cannot be blank");
+	    	return false;
+	    }
+	    if(txtLandNumber.getText().equals("")) {
+	    	JOptionPane.showMessageDialog(null,"Land Number cannot be blank");
+	    	return false;
+	    }
 		
 		return true;
 	}
