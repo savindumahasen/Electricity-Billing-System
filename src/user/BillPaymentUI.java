@@ -126,6 +126,7 @@ public class BillPaymentUI extends JFrame {
 		JButton btnProceed = new JButton("Proceed");
 		btnProceed.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(checkValidation()) {
 				   int ID=Integer.valueOf(txtID1.getText());
 				   String account=txtAccount.getText();
 				   double amount=Double.valueOf(txtAmount.getText());
@@ -156,6 +157,7 @@ public class BillPaymentUI extends JFrame {
 					JOptionPane.showMessageDialog(null,"Please Enter the correct Account Number");
 				   }
 			}
+			}
 		});
 		btnProceed.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnProceed.setBounds(380, 369, 108, 21);
@@ -179,11 +181,38 @@ public class BillPaymentUI extends JFrame {
 		Image billPaymentImage = new ImageIcon(this.getClass().getResource("/Bill-Payment.png")).getImage();
 		lbl6.setIcon(new ImageIcon(billPaymentImage));
 	
-		
-	
 	
 		
 	
 	}
+
+	private boolean checkValidation() {
+		
+		if(txtID1.getText().equals("")) {
+			JOptionPane.showMessageDialog(null,"ID cannot be blank");
+			return false;
+		}
+		try {
+			int ID=Integer.valueOf(txtID1.getText());
+		}catch(Exception e) {
+			JOptionPane.showMessageDialog(null,"ID must be numeric");
+			return false;
+		}
+		if(txtAccount.getText().equals("")) {
+			JOptionPane.showMessageDialog(null,"Account cannot be blank");
+			return false;
+		}
+		if(txtAmount.getText().equals("")) {
+			JOptionPane.showMessageDialog(null,"Amount cannot be blank");
+			return false;
+		}
+		if(txtEmail.getText().equals("")) {
+			JOptionPane.showMessageDialog(null,"Email cannot be blank");
+			return false;
+		}
+		return true;
+	}
+
+ 
 	
 }
