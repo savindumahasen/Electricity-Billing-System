@@ -101,6 +101,7 @@ public class MyProfile extends JFrame {
 		btnFind = new JButton("Search\r\n");
 		btnFind.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(checkValidation()) {
 				int ID= Integer.valueOf(JOptionPane.showInputDialog("",txtID.getText()));
 				Customer customer=custDB.get(ID);
 				txtID.setText(String.valueOf(customer.getID()));
@@ -110,13 +111,14 @@ public class MyProfile extends JFrame {
 				txtLandNumber.setText(customer.getLandNumber());
 				
 			}
+			}
 		});
 		
 		JButton btnUpdate = new JButton("Edit Profile");
 		btnUpdate.setFont(new Font("Tahoma", Font.BOLD, 14));
 		btnUpdate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+		
 				String accountNumber="";
 				String userName="";
 				String password="";
@@ -189,5 +191,20 @@ public class MyProfile extends JFrame {
 		
 		
 		
+	}
+	private boolean checkValidation() {
+		
+		if(txtID.getText().equals("")) {
+			JOptionPane.showMessageDialog(null,"ID cannot be blank");
+			return false;
+		}
+		try {
+			int ID=Integer.valueOf(txtID.getText());
+		}catch(Exception e) {
+			JOptionPane.showMessageDialog(null,"ID should be numberic");
+			return false;
+		}
+		
+		return true;
 	}
 }
