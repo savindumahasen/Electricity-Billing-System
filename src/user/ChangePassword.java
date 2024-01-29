@@ -131,6 +131,7 @@ public class ChangePassword extends JFrame {
 		JButton btnChange = new JButton("Change");
 		btnChange.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(checkValidation()) {
 				String firstName="";
 				String lastName="";
 				String accountNumber="";
@@ -169,6 +170,7 @@ public class ChangePassword extends JFrame {
 					}
 					
 				
+			}
 			}
 		});
 		btnChange.setFont(new Font("Tahoma", Font.BOLD, 14));
@@ -219,6 +221,35 @@ public class ChangePassword extends JFrame {
 		lbl7.setIcon(new ImageIcon(changePasswordImage));
 		
 	
+		
+	}
+	private boolean checkValidation() {
+		
+		if(txtID.getText().equals("")) {
+			JOptionPane.showMessageDialog(null,"ID cannot be blank");
+			return false;
+		}
+		try {
+			int ID=Integer.valueOf(txtID.getText());
+		}catch(Exception  e) {
+			JOptionPane.showMessageDialog(null,"ID must be numberic");
+			return false;
+		}
+		if(txtCurrentPassword.getText().equals("")) {
+			JOptionPane.showMessageDialog(null,"Current Password cannot be blank");
+			return false;
+		}
+		if(txtNewPassword.getText().equals("")) {
+			JOptionPane.showMessageDialog(null,"New Password cannot be blank");
+			return false;
+		}
+		if(txtConfirmNewPassword.getText().equals("")) {
+			JOptionPane.showMessageDialog(null, "Confirm Password cannot be blank");
+			return false;
+		}
+		
+		
+		return true;
 		
 	}
 }
